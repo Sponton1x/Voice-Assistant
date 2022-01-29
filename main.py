@@ -101,10 +101,6 @@ if __name__ == '__main__':
             speak('okay')
             webbrowser.open('www.gmail.com')
 
-        elif 'open librus' in query:
-            speak('okay')
-            webbrowser.open('https://portal.librus.pl/rodzina')
-
         elif "what\'s up" in query or 'how are you' in query:
             stMsgs = ["I'm boring in virtual world ", "fine", 'cool', "I'm full energy"]
             speak(random.choice(stMsgs))
