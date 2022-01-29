@@ -40,6 +40,10 @@ Features:
     Linux/macOS
     python3 pip install pipwin
     pipwin install pyaudio
+    
+## Getting Started
+Install [Python](https://www.python.org/downloads/) `recommender` <br>
+Login on this [website](https://openweathermap.org/api) and get api key into a tab and paste in api_key.txt
 
 ## Help
   If you have a probrem with this repository you can ask me on Discord (Sponton#4170) 
