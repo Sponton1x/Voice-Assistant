@@ -1,0 +1,45 @@
+# Voice Assistant 🤖
+Artificial Inteligence has been written in Python 🐍 using PyAudio, SpeechRecognition, Pyttsx3 <br> <br>
+    <a href="https://www.python.org/">
+    	<img src="https://img.shields.io/badge/built%20with-Python3-red.svg" />
+    </a> <br>
+Features:
+* open webrowser
+* open email
+* open faceboot
+* open github
+* say weather
+* say time
+* lock screen
+* turn off pc
+* search wikipedia
+* introduce yourself
+
+## What I used to:
+- [x] Pyttsx3 ([Docs](https://pyttsx3.readthedocs.io/en/latest/))<br>
+- [X] SpeechRecognition ([Docs](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition)) <br>
+- [X] PyAudio
+
+## Installation:
+
+     Linux/macOS
+    git clone https://github.com/Sponton1x/AI.git
+    cd AI
+    python3 main.py
+
+     Windows
+    git clone https://github.com/Sponton1x/AI.git
+    cd AI
+    main.py
+    
+## Install PyAudio
+    Windows
+    pip install pipwin
+    pipwin install pyaudio
+    
+    Linux/macOS
+    python3 pip install pipwin
+    pipwin install pyaudio
+
+## Help
+  If you have a probrem with this repository you can ask me on Discord (Sponton#4170) 
