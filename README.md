@@ -6,7 +6,7 @@ Artificial Inteligence has been written in Python 🐍 using PyAudio, SpeechReco
 Features:
 * open webrowser
 * open email
-* open faceboot
+* open facebook
 * open github
 * say weather
 * say time
