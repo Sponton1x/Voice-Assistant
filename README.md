@@ -1,5 +1,5 @@
 # Voice Assistant 🤖
-Artificial Inteligence has been written in Python 🐍 using PyAudio, SpeechRecognition, Pyttsx3 <br> <br>
+Voice Assistant has been written in Python 🐍 using PyAudio, SpeechRecognition, Pyttsx3 <br> <br>
     <a href="https://www.python.org/">
     	<img src="https://img.shields.io/badge/built%20with-Python3-red.svg" />
     </a> <br>
@@ -24,12 +24,12 @@ Features:
 
      Linux/macOS
     git clone https://github.com/Sponton1x/AI.git
-    cd AI
+    cd Voice Assistant
     python3 main.py
 
      Windows
     git clone https://github.com/Sponton1x/AI.git
-    cd AI
+    cd Voice Assistant
     main.py
     
 ## Install PyAudio
