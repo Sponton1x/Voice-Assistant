@@ -32,12 +32,13 @@ Features:
     cd Voice Assistant
     main.py
     
-## Install PyAudio
-   Windows
+## Install PyAudio:
+
+    Windows
     pip install pipwin
     pipwin install pyaudio
     
-   Linux/macOS
+    Linux/macOS
     python3 pip install pipwin
     pipwin install pyaudio
     
