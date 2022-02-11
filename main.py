@@ -6,18 +6,8 @@ import requests
 import speech_recognition as sr
 import wikipedia
 import datetime
-import wolframalpha
 import sys
-import win10toast_persist
-
-engine = pyttsx3.init('sapi5')
-
-client = wolframalpha.Client('Your_App_ID')
-
-voices = engine.getProperty('voices')
-voices = engine.setProperty('rete', 200)
-engine.setProperty('voice', "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_DAVID_11.0")
-
+from engine import Engine
 
 # for voice in voices:
 #    print(voice.id)
