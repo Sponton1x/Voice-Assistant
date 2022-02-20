@@ -1,13 +1,25 @@
-import pyttsx3
-import webbrowser
-import random
 import datetime
+import random
+import sqlite3
+import sys
+import webbrowser
+import pyttsx3
 import requests
 import speech_recognition as sr
 import wikipedia
-import datetime
-import sys
-from engine import Engine
+import win10toast_persist
+import wolframalpha
+from func import randoming, createTable, insert
+
+# for voice in voices:
+#    print(voice.id)
+client = wolframalpha.Client('Your_App_ID')
+
+engine = pyttsx3.init('sapi5')
+voices = engine.getProperty('voices')
+voices = engine.setProperty('rete', 200)
+engine.setProperty('voice', "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_DAVID_11.0")
+
 
 # for voice in voices:
 #    print(voice.id)
@@ -16,7 +28,6 @@ def speak(audio):
     print('Jarvis: ' + audio)
     engine.say(audio)
     engine.runAndWait()
-
 
 def greetMe():
     currentH = int(datetime.datetime.now().hour)
@@ -53,15 +64,13 @@ engine.say("It is" + data2)
 engine.runAndWait()"""
 
 greetMe()
-speak("I'm Jarvis !")
-speak('How I can help you')
+speak("How I can help you")
 
 
 def myCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
-        r.pause_threshold = 1
         audio = r.listen(source)
     try:
         query = r.recognize_google(audio, language='en-in')
@@ -76,7 +85,7 @@ if __name__ == '__main__':
 
     while True:
 
-        query = myCommand();
+        query = input()
         query = query.lower()
 
         if 'open facebook' in query:
@@ -103,16 +112,17 @@ if __name__ == '__main__':
         elif 'close' in query or 'quit' in query or 'stop' in query:
             says = [f"Jarvis Quiting ,have a good day ", "Sure", f'Closing the program ,have a good day',
                     f"Stopping the program ,have a good day"]
-            speak(random.choice(says))
+            speak(randoming(says))
             sys.exit()
 
 
         elif 'who are you' in query:
-            says = "Let me to introduce myself.I'm jarvis and your personal voice assistant."
+            says = ["Let me to introduce myself. I am Jarvis and your personal voice assistant.", "I am Virtual Voice Assistent has been written by Sponton", "My ownter is Sponton and I am his assistent"]
             speak(says)
 
         elif 'hello' in query or 'hi' in query:
-            speak('Hello Sir')
+            says = ["hi sir, good day", ""]
+            speak(randoming(says))
 
         elif 'time' in query:
             currTime = datetime.datetime.now().strftime("%H:%M:%S")
@@ -173,6 +183,19 @@ if __name__ == '__main__':
                 else:
                     speak("You don't have permission")
                     pass
+
+        elif "thx" in query or "thank" in query or "thanks" in query:
+            speak("I am for you")
+
+        elif "url" in query:
+            createTable("database.db", "urls", "category", "TEXT", "url")
+
+            var = input().split()
+            #print(query)
+            if query[0] == "add":
+                insert("datebase.db", f'{var[1]}', f'{var[2]}')
+
+
 
         else:
             query = query
