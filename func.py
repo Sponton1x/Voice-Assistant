@@ -3,6 +3,7 @@ import sqlite3
 import speech_recognition as sr
 
 
+
 def randoming(board):
     lol = random.choice(board)
     return lol
@@ -10,7 +11,7 @@ def randoming(board):
 def createTable(nameDB, nametable, column1, Type, column2, ):
     con = sqlite3.connect(nameDB)
     cur = con.cursor()
-    cur.execute(f"CREATE TABLE IF NOT EXISTS {nametable} ({column1} {Type}, {column2} {Type});")
+    cur.execute(f"CREATE TABLE IF NOT EXISTS {nametable} ({column1} {Type}, {column2} {Type})")
     con.commit()
     con.close()
 
@@ -34,5 +35,3 @@ def cmd():
         query = str(input('Command: '))
 
     return query
-
-

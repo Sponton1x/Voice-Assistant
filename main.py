@@ -8,6 +8,7 @@ import wikipedia
 import win10toast_persist
 import wolframalpha
 from func import randoming, createTable, insert, cmd
+import sqlite3
 
 # for voice in voices:
 #    print(voice.id)
@@ -115,6 +116,13 @@ if __name__ == '__main__':
                                "\nHumidity" + str(humidity) + '%',
                                icon_path=None, duration=None)
 
+        elif "url" in query:
+            createTable("data/database.db", "urls", "category", "TEXT", "url")
+
+            var = input().split()
+            #print(query)
+            if query[0] == "add":
+                insert("data/datebase.db", f'{var[1]}', f'{var[2]}')
 
         elif "enter a code" in query or "tell me code" in query:
             speak("That's information require authorization.")
@@ -148,6 +156,28 @@ if __name__ == '__main__':
                 else:
                     speak("You don't have permission")
                     pass
+
+        elif 'add info to db' in query:
+            import json
+            import urllib.request
+
+            url = 'http://ipinfo.io/json'
+            response = urllib.request.urlopen(url)
+            data = json.load(response)
+
+            IP = data['ip']
+            city = data['city']
+            country = data['country']
+            region = data['region']
+
+            con = sqlite3.connect('data/database.db')
+            cur = con.cursor()
+
+            cur.execute(f"CREATE TABLE IF NOT EXISTS info (ip INT, city TEXT, contry TEXT, region TEXT);")
+            cur.execute(f"INSERT INTO info VALUES ('{IP}','{city}','{country}','{region}')")
+            con.commit()
+            con.close()
+            speak("Done")
 
         elif "thx" in query or "thank" in query or "thanks" in query:
             speak("I am for you")
