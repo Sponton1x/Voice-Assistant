@@ -1,18 +1,17 @@
 import datetime
 import random
-import sqlite3
 import sys
 import webbrowser
 import pyttsx3
 import requests
-import speech_recognition as sr
 import wikipedia
 import win10toast_persist
 import wolframalpha
-from func import randoming, createTable, insert
+from func import randoming, createTable, insert, cmd
 
 # for voice in voices:
 #    print(voice.id)
+
 client = wolframalpha.Client('Your_App_ID')
 
 engine = pyttsx3.init('sapi5')
@@ -40,45 +39,8 @@ def greetMe():
     if currentH >= 18 and currentH != 0:
         speak('Good Evening!')
 
-
-"""currentH = int(datetime.datetime.now().hour)
-#if currentH == 7:
- #   speak("Welcome sir")
-  #  import pyttsx3
-   # import requests
-
-
-#def weather():
-#api = "https://www.weatherapi.com/weather/q/lodz-poland-1966664"
-
-
-jsl = requests.get(api).json()
-
-data = jsl["main"]["temp"]
-data1 = data - 273.15
-print("The temperature in łodź is" + str(data1), "*C")
-data2 = jsl["weather"][0]["description"]
-print("It is" + str(data2))
-engine.say("The current temperature in łodź is" + str(data1) + "degrees celcius")
-engine.say("It is" + data2)
-engine.runAndWait()"""
-
 greetMe()
 speak("How I can help you")
-
-
-def myCommand():
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Listening...")
-        audio = r.listen(source)
-    try:
-        query = r.recognize_google(audio, language='en-in')
-        print(f'User Said: {query} \n')
-    except sr.UnknownValueError:
-        query = str(input('Command: '))
-
-    return query
 
 
 if __name__ == '__main__':
@@ -117,12 +79,15 @@ if __name__ == '__main__':
 
 
         elif 'who are you' in query:
-            says = ["Let me to introduce myself. I am Jarvis and your personal voice assistant.", "I am Virtual Voice Assistent has been written by Sponton", "My ownter is Sponton and I am his assistent"]
-            speak(says)
+            says = ["Let me to introduce myself. I am Jarvis and your personal voice assistant.", "I am Virtual Voice Assistent has been written by Sponton", "My owner is Sponton and I am his assistent"]
+            speak(randoming(says))
 
         elif 'hello' in query or 'hi' in query:
-            says = ["hi sir, good day", ""]
+            says = ["hi sir, good day", "hello, how are you"]
             speak(randoming(says))
+
+        elif 'good' in query or 'fine' in query or 'ok' in query:
+            speak("So good, if you will need me say Jarvis")
 
         elif 'time' in query:
             currTime = datetime.datetime.now().strftime("%H:%M:%S")
@@ -156,8 +121,8 @@ if __name__ == '__main__':
             speak("Random Question authorization")
             question = ['Favourite team?', 'Favourite dishes?', "What's your favourite subject?"]
             speak('Please responede from question.')
-            print(random.choice(question))
-            choose = random.choice(question)
+            print(randoming(question))
+            choose = randoming(question)
             responde = input()
 
             if choose == question[0]:
@@ -194,7 +159,6 @@ if __name__ == '__main__':
             #print(query)
             if query[0] == "add":
                 insert("datebase.db", f'{var[1]}', f'{var[2]}')
-
 
 
         else:
