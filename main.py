@@ -1,13 +1,24 @@
-import pyttsx3
-import webbrowser
+import datetime
 import random
-import datetime
-import requests
-import speech_recognition as sr
-import wikipedia
-import datetime
 import sys
-from engine import Engine
+import webbrowser
+import pyttsx3
+import requests
+import wikipedia
+import win10toast_persist
+import wolframalpha
+from func import randoming, createTable, insert, cmd
+
+# for voice in voices:
+#    print(voice.id)
+
+client = wolframalpha.Client('Your_App_ID')
+
+engine = pyttsx3.init('sapi5')
+voices = engine.getProperty('voices')
+voices = engine.setProperty('rete', 200)
+engine.setProperty('voice', "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_DAVID_11.0")
+
 
 # for voice in voices:
 #    print(voice.id)
@@ -16,7 +27,6 @@ def speak(audio):
     print('Jarvis: ' + audio)
     engine.say(audio)
     engine.runAndWait()
-
 
 def greetMe():
     currentH = int(datetime.datetime.now().hour)
@@ -29,54 +39,15 @@ def greetMe():
     if currentH >= 18 and currentH != 0:
         speak('Good Evening!')
 
-
-"""currentH = int(datetime.datetime.now().hour)
-#if currentH == 7:
- #   speak("Welcome sir")
-  #  import pyttsx3
-   # import requests
-
-
-#def weather():
-#api = "https://www.weatherapi.com/weather/q/lodz-poland-1966664"
-
-
-jsl = requests.get(api).json()
-
-data = jsl["main"]["temp"]
-data1 = data - 273.15
-print("The temperature in łodź is" + str(data1), "*C")
-data2 = jsl["weather"][0]["description"]
-print("It is" + str(data2))
-engine.say("The current temperature in łodź is" + str(data1) + "degrees celcius")
-engine.say("It is" + data2)
-engine.runAndWait()"""
-
 greetMe()
-speak("I'm Jarvis !")
-speak('How I can help you')
-
-
-def myCommand():
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Listening...")
-        r.pause_threshold = 1
-        audio = r.listen(source)
-    try:
-        query = r.recognize_google(audio, language='en-in')
-        print(f'User Said: {query} \n')
-    except sr.UnknownValueError:
-        query = str(input('Command: '))
-
-    return query
+speak("How I can help you")
 
 
 if __name__ == '__main__':
 
     while True:
 
-        query = myCommand();
+        query = input()
         query = query.lower()
 
         if 'open facebook' in query:
@@ -103,16 +74,20 @@ if __name__ == '__main__':
         elif 'close' in query or 'quit' in query or 'stop' in query:
             says = [f"Jarvis Quiting ,have a good day ", "Sure", f'Closing the program ,have a good day',
                     f"Stopping the program ,have a good day"]
-            speak(random.choice(says))
+            speak(randoming(says))
             sys.exit()
 
 
         elif 'who are you' in query:
-            says = "Let me to introduce myself.I'm jarvis and your personal voice assistant."
-            speak(says)
+            says = ["Let me to introduce myself. I am Jarvis and your personal voice assistant.", "I am Virtual Voice Assistent has been written by Sponton", "My owner is Sponton and I am his assistent"]
+            speak(randoming(says))
 
         elif 'hello' in query or 'hi' in query:
-            speak('Hello Sir')
+            says = ["hi sir, good day", "hello, how are you"]
+            speak(randoming(says))
+
+        elif 'good' in query or 'fine' in query or 'ok' in query:
+            speak("So good, if you will need me say Jarvis")
 
         elif 'time' in query:
             currTime = datetime.datetime.now().strftime("%H:%M:%S")
@@ -146,8 +121,8 @@ if __name__ == '__main__':
             speak("Random Question authorization")
             question = ['Favourite team?', 'Favourite dishes?', "What's your favourite subject?"]
             speak('Please responede from question.')
-            print(random.choice(question))
-            choose = random.choice(question)
+            print(randoming(question))
+            choose = randoming(question)
             responde = input()
 
             if choose == question[0]:
@@ -173,6 +148,18 @@ if __name__ == '__main__':
                 else:
                     speak("You don't have permission")
                     pass
+
+        elif "thx" in query or "thank" in query or "thanks" in query:
+            speak("I am for you")
+
+        elif "url" in query:
+            createTable("database.db", "urls", "category", "TEXT", "url")
+
+            var = input().split()
+            #print(query)
+            if query[0] == "add":
+                insert("datebase.db", f'{var[1]}', f'{var[2]}')
+
 
         else:
             query = query
