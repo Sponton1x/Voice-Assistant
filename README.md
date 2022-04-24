@@ -22,24 +22,24 @@ Features:
 
 ## Installation:
 
-.. code:: sh
+
      Linux/macOS
     git clone https://github.com/Sponton1x/AI.git
     cd Voice Assistant
     python3 main.py
 
-.. code:: sh
+
      Windows
     git clone https://github.com/Sponton1x/AI.git
     cd Voice Assistant
     main.py
     
 ## Install PyAudio:
-.. code:: py
+
     Windows
     pip install pipwin
     pipwin install pyaudio
-.. code: py 
+
     Linux/macOS
     python3 pip install pipwin
     pipwin install pyaudio
@@ -47,7 +47,7 @@ Features:
 ## Getting Started
 Install [Python](https://www.python.org/downloads/) ``recommend`` <br>
 Login on this [website](https://openweathermap.org/api) and get api key into a tab and paste in api_keys.txt
-.. code:: txt
+
     Install requirements
     pip install -r requirements.txt
 
