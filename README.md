@@ -1,9 +1,11 @@
 # Voice Assistant 🤖
 Voice Assistant has been written in Python 🐍 using PyAudio, SpeechRecognition, Pyttsx3 <br> <br>
-    <a href="https://www.python.org/">
-    	<img src="https://img.shields.io/badge/built%20with-Python3-red.svg" /> <br>
-        <img src="https://camo.githubusercontent.com/f6b41e550efc8266875513b793f6b9815db931f8f900dc4a7b275eb5e2556085/68747470733a2f2f6769746875622d726561646d652d73746174732e76657263656c2e6170702f6170692f70696e2f3f757365726e616d653d616e7572616768617a7261267265706f3d6769746875622d726561646d652d73746174732663616368655f7365636f6e64733d3836343030267468656d653d746f6b796f6e69676874"/> 
-    </a> <br>
+    <a>
+        <img src="https://img.shields.io/badge/build%20with-python3-red?style=for-the-badge&logo=appveyor" /> 
+        <img src="https://img.shields.io/badge/version-1.0.0--beta-green?style=for-the-badge&logo=appveyor"/>
+        <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en"><img src="https://img.shields.io/badge/license-CC%20BY--NC%204.0-blue?style=for-the-badge&logo=appveyor"/></a>
+    </a>
+    
 Features:
 * open webrowser
 * open email
@@ -17,7 +19,7 @@ Features:
 * introduce yourself
 
 ## What I used to:
-- [x] Pyttsx3 ([Docs](https://pyttsx3.readthedocs.io/en/latest/))<br>
+- [x] Pyttsx3 ([Docs](https://pyttsx3.readthedocs.io/en/latest/)) <br>
 - [X] SpeechRecognition ([Docs](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition)) <br>
 - [X] PyAudio
 
@@ -51,6 +53,9 @@ Login on this [website](https://openweathermap.org/api) and get api key into a t
 
     Install requirements
     pip install -r requirements.txt
+
+## License
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>. In short CC BY-NC 4.0 are allowed to copy and redistribute the material in any medium or format, but you don't acceptance of financial benefits.
 
 ## Help
   If you have a probrem with this repository you can ask me on Discord (Sponton#4170) 
