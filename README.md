@@ -6,7 +6,7 @@ Voice Assistant has been written in Python 🐍 using PyAudio, SpeechRecognition
         <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.en"><img src="https://img.shields.io/badge/license-CC%20BY--NC%204.0-blue?style=for-the-badge&logo=appveyor"/></a>
     </a>
     
-Features:
+## Features:
 * open webrowser
 * open email
 * open facebook
