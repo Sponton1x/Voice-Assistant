@@ -28,14 +28,16 @@ Voice Assistant has been written in Python 🐍 using PyAudio, SpeechRecognition
 
      Linux/macOS
     git clone https://github.com/Sponton1x/AI.git
+    <package_manager> install docker docker-compose
     cd Voice Assistant
-    python3 main.py
+    docker-compose build && docker-compose up
 
 
      Windows
     git clone https://github.com/Sponton1x/AI.git
+    Install docker
     cd Voice Assistant
-    main.py
+    docker-compose build && docker-compose up
     
 ## Install PyAudio:
 
@@ -47,12 +49,6 @@ Voice Assistant has been written in Python 🐍 using PyAudio, SpeechRecognition
     python3 pip install pipwin
     pipwin install pyaudio
     
-## Getting Started
-Install [Python](https://www.python.org/downloads/) ``recommend`` <br>
-Login on this [website](https://openweathermap.org/api) and get api key into a tab and paste in api_keys.txt
-
-    Install requirements
-    pip install -r requirements.txt
 
 ## License
 This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>. In short CC BY-NC 4.0 are allowed to copy and redistribute the material in any medium or format, but you don't acceptance of financial benefits.
