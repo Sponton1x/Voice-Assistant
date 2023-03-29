@@ -18,14 +18,14 @@ I don't counted :)
      Linux/macOS
     Download file main.py
     cd location_main.py
-    python3 install -r requirements.txt
+    python3 -m pip install -r requirements.txt
     enter api key and put in code
 
 
      Windows
     Download file main.py
     cd location_main.py
-    python3 install -r requirements.txt
+    python3 -m pip install -r requirements.txt
     enter api key and put in code
     
 
